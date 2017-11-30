@@ -8,6 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class Userpojo implements UserDetails{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -86,6 +90,14 @@ public class Userpojo implements UserDetails{
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Userpojo [username=" + username + ", password=" + password + ", authorities=" + authorities
+				+ ", isAccountNonExpired=" + isAccountNonExpired + ", isAccountNonLocked=" + isAccountNonLocked
+				+ ", isCredentialsNonExpired=" + isCredentialsNonExpired + ", isEnabled=" + isEnabled + "]";
+	}
+	
 	
 
 }

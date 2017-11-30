@@ -13,7 +13,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     	System.out.println("HttpSecurity Initiated");
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/api/v1/**").authenticated()
+                .antMatchers("/api/v1/**").hasAuthority("client-admin")
+                .antMatchers("/save").hasAnyAuthority("client-admin","admin")
+                .antMatchers("/delete").hasAnyAuthority("client-admin","admin");
                 /* .and().httpBasic()
                 .disable()
                 .csrf().disable();*/
